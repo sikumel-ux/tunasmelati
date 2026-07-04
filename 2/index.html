@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPS Tunas Melati - Dongkelan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <button class="admin-trigger-btn" id="adminTriggerBtn">🔒 Admin</button>
+
+    <header class="hero-header">
+        <div class="ornament cloud cloud-1">☁️</div>
+        <div class="ornament cloud cloud-2">☁️</div>
+        <div class="ornament leaf leaf-1">🍃</div>
+        <div class="ornament leaf leaf-2">🌱</div>
+        <div class="ornament flower flower-1">🌸</div>
+        <div class="ornament sparkle sparkle-1">✨</div>
+        <div class="ornament blob"></div>
+
+        <div class="hero-content">
+            <img src="logo.png" alt="Logo SPS Tunas Melati" class="hero-logo" onerror="this.src='https://placehold.co/120x120/67C23A/ffffff?text=Logo'">
+            <p class="hero-subtitle">SISTEM PENERIMAAN MURID BARU</p>
+            <h1 class="hero-title" id="text-school-name">SPS TUNAS MELATI</h1>
+            <p class="hero-location" id="text-school-address">Dongkelan - Panggungharjo</p>
+        </div>
+        
+        <div class="header-curve">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,42.4V0Z" fill="#ffffff"></path>
+            </svg>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <section class="donation-banner ripple-effect" id="donationBanner">
+            <div class="donation-content">
+                <span class="donation-icon">🏫</span>
+                <div class="donation-text">
+                    <h3 id="text-donation-title">Donasi Pembangunan Gedung Baru SPS Tunas Melati</h3>
+                    <p id="text-donation-sub">"Bersama kita wujudkan tempat belajar yang nyaman untuk anak-anak."</p>
+                </div>
+            </div>
+            <button class="donation-btn">❤️ Donasi Sekarang</button>
+        </section>
+
+        <nav class="app-launcher-grid">
+            <div class="launcher-card ripple-effect" data-target="profil">
+                <div class="launcher-icon bg-light-green">🏫</div>
+                <div class="launcher-info">
+                    <h4>Profil Sekolah</h4>
+                    <p>Kenali kami lebih dekat</p>
+                </div>
+            </div>
+            <div class="launcher-card ripple-effect" data-target="program">
+                <div class="launcher-icon bg-light-yellow">📖</div>
+                <div class="launcher-info">
+                    <h4>Program Belajar</h4>
+                    <p>Kegiatan seru anak</p>
+                </div>
+            </div>
+            <div class="launcher-card ripple-effect" data-target="galeri">
+                <div class="launcher-icon bg-light-orange">🖼</div>
+                <div class="launcher-info">
+                    <h4>Galeri</h4>
+                    <p>Dokumentasi ceria</p>
+                </div>
+            </div>
+            <div class="launcher-card ripple-effect" data-target="guru">
+                <div class="launcher-icon bg-light-purple">👩‍🏫</div>
+                <div class="launcher-info">
+                    <h4>Guru</h4>
+                    <p>Pendidik tersayang</p>
+                </div>
+            </div>
+            <div class="launcher-card ripple-effect" data-target="ppdb">
+                <div class="launcher-icon bg-light-red">📝</div>
+                <div class="launcher-info">
+                    <h4>PPDB</h4>
+                    <p>Pendaftaran murid baru</p>
+                </div>
+            </div>
+            <div class="launcher-card ripple-effect" data-target="fasilitas">
+                <div class="launcher-icon bg-light-blue">🌳</div>
+                <div class="launcher-info">
+                    <h4>Fasilitas</h4>
+                    <p>Sarana pendukung</p>
+                </div>
+            </div>
+            <div class="launcher-card ripple-effect" id="btnContactWA">
+                <div class="launcher-icon bg-light-teal">📞</div>
+                <div class="launcher-info">
+                    <h4>Kontak</h4>
+                    <p>Hubungi admin</p>
+                </div>
+            </div>
+            <div class="launcher-card ripple-effect" data-target="lokasi">
+                <div class="launcher-icon bg-light-pink">📍</div>
+                <div class="launcher-info">
+                    <h4>Lokasi</h4>
+                    <p>Peta petunjuk sekolah</p>
+                </div>
+            </div>
+        </nav>
+
+        <section id="profil" class="section scroll-reveal">
+            <h2 class="section-title">Profil Sekolah</h2>
+            <div class="modern-card profile-card">
+                <div class="welcome-speech">
+                    <h3>💬 Sambutan Kepala Sekolah</h3>
+                    <p id="text-welcome">"Selamat datang di SPS Tunas Melati Dongkelan. Kami berkomitmen untuk menghadirkan lingkungan belajar yang aman, ceria, dan merangsang perkembangan motorik serta karakter budi pekerti luhur sejak dini."</p>
+                </div>
+                <hr class="card-divider">
+                <div class="vision-mission-grid">
+                    <div>
+                        <h4>🎯 Visi</h4>
+                        <p id="text-vision">Terwujudnya anak usia dini yang cerdas, ceria, mandiri, dan berkarakter islami/budi pekerti luhur sejak usia emas.</p>
+                    </div>
+                    <div>
+                        <h4>🚀 Misi</h4>
+                        <ul id="text-mission">
+                            <li>Menyelenggarakan pembelajaran aktif berbasis bermain.</li>
+                            <li>Mengembangkan kreativitas dan rasa percaya diri anak.</li>
+                            <li>Menjalin kemitraan yang harmonis dengan orang tua murid.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="program" class="section scroll-reveal">
+            <h2 class="section-title">Program Belajar</h2>
+            <div class="program-grid">
+                <div class="program-card">
+                    <span class="program-icon">📚</span>
+                    <h3>Membaca</h3>
+                    <p>Pengenalan huruf dan angka lewat cerita bergambar interaktif.</p>
+                </div>
+                <div class="program-card">
+                    <span class="program-icon">🎨</span>
+                    <h3>Menggambar</h3>
+                    <p>Mengeksplorasi warna untuk mengasah motorik halus anak.</p>
+                </div>
+                <div class="program-card">
+                    <span class="program-icon">🎵</span>
+                    <h3>Musik</h3>
+                    <p>Bernyanyi bersama melatih kecerdasan auditori dan ritme.</p>
+                </div>
+                <div class="program-card">
+                    <span class="program-icon">🕌</span>
+                    <h3>Pendidikan Karakter</h3>
+                    <p>Pembiasaan ibadah harian dan akhlak mulia sejak dini.</p>
+                </div>
+                <div class="program-card">
+                    <span class="program-icon">🌱</span>
+                    <h3>Berkebun</h3>
+                    <p>Mengenal alam terbuka dan belajar mencintai lingkungan sekitar.</p>
+                </div>
+                <div class="program-card">
+                    <span class="program-icon">🏃</span>
+                    <h3>Motorik</h3>
+                    <p>Ketangkasan fisik dasar lewat permainan kelompok yang seru.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="galeri" class="section scroll-reveal">
+            <h2 class="section-title">Galeri Kegiatan</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/id/1067/600/400" alt="Kegiatan Mewarnai">
+                    <div class="gallery-overlay"><span>🔎 Lihat</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/id/447/600/400" alt="Bermain di Taman">
+                    <div class="gallery-overlay"><span>🔎 Lihat</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/id/365/600/400" alt="Pentas Seni Anak">
+                    <div class="gallery-overlay"><span>🔎 Lihat</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/id/160/600/400" alt="Belajar Berkebun">
+                    <div class="gallery-overlay"><span>🔎 Lihat</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="guru" class="section scroll-reveal">
+            <h2 class="section-title">Guru Tersayang</h2>
+            <div class="teacher-grid">
+                <div class="teacher-card">
+                    <div class="teacher-avatar">
+                        <img src="https://i.pravatar.cc/150?img=47" alt="Ibu Guru">
+                    </div>
+                    <h3>Sri Wahyuni, S.Pd.</h3>
+                    <p class="role">Kepala Sekolah</p>
+                </div>
+                <div class="teacher-card">
+                    <div class="teacher-avatar">
+                        <img src="https://i.pravatar.cc/150?img=49" alt="Ibu Guru">
+                    </div>
+                    <h3>Siti Rahma, S.Pd.</h3>
+                    <p class="role">Wali Kelas A</p>
+                </div>
+                <div class="teacher-card">
+                    <div class="teacher-avatar">
+                        <img src="https://i.pravatar.cc/150?img=32" alt="Ibu Guru">
+                    </div>
+                    <h3>Anisa Fitri, A.Ma.Pd.</h3>
+                    <p class="role">Wali Kelas B</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="fasilitas" class="section scroll-reveal">
+            <h2 class="section-title">Fasilitas Nyaman</h2>
+            <div class="facility-grid">
+                <div class="facility-item"><span class="fac-icon">🏫</span> Ruang Belajar Ber-AC</div>
+                <div class="facility-item"><span class="fac-icon">🛝</span> Area Bermain Luar (Outdoor)</div>
+                <div class="facility-item"><span class="fac-icon">📚</span> Pojok Baca & Perpustakaan</div>
+                <div class="facility-item"><span class="fac-icon">🚻</span> Toilet Khusus Anak</div>
+                <div class="facility-item"><span class="fac-icon">🚗</span> Area Parkir Aman</div>
+                <div class="facility-item"><span class="fac-icon">🌳</span> Taman Hijau Edukatif</div>
+            </div>
+        </section>
+
+        <section id="ppdb" class="cta-banner scroll-reveal">
+            <h2>Ayo Bergabung Bersama <br>SPS Tunas Melati</h2>
+            <p>Pendaftaran Murid Baru Tahun Ajaran Baru Telah Dibuka. Kuota Terbatas!</p>
+            <button class="cta-btn pulse-animation" id="btnCtaDaftar">Daftar Sekarang 🚀</button>
+        </section>
+
+        <section id="lokasi" class="section scroll-reveal">
+            <h2 class="section-title">Lokasi Kami</h2>
+            <div class="modern-card maps-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.5645084995773!2d110.3541818!3d-7.8358231!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwNTAnMDkuMCJTIDExMMKwMjEnMTUuMSJF!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-grid">
+            <div class="footer-info">
+                <img src="logo.png" alt="Logo Footer" class="footer-logo" onerror="this.src='https://placehold.co/80x80/67C23A/ffffff?text=Logo'">
+                <h3>SPS TUNAS MELATI</h3>
+                <p>Dongkelan, RT 04, Panggungharjo, Sewon, Bantul, D.I. Yogyakarta.</p>
+            </div>
+            <div class="footer-contact">
+                <h4>Hubungi Kami</h4>
+                <p>📞 WhatsApp: +62 812-3456-789</p>
+                <p>✉️ Email: spstunasmelati@gmail.com</p>
+            </div>
+            <div class="footer-socials">
+                <h4>Media Sosial</h4>
+                <div class="social-icons">
+                    <a href="#" class="social-link">Instagram</a>
+                    <a href="#" class="social-link">YouTube</a>
+                    <a href="#" class="social-link">Facebook</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>© 2026 SPS Tunas Melati. All Rights Reserved. Terasa Nyaman di Genggaman Orang Tua.</p>
+        </div>
+    </footer>
+
+    <div class="modal-overlay" id="adminModal">
+        <div class="modal-content admin-box">
+            <button class="close-modal-btn" id="btnCloseAdminModal">✕</button>
+            
+            <div id="adminLoginForm">
+                <h3>🔒 Login Dashboard Admin</h3>
+                <p style="font-size: 13px; color: #666; margin-bottom: 15px;">Akses masuk menggunakan akun Firebase resmi.</p>
+                <div class="form-group">
+                    <label>Email Admin</label>
+                    <input type="email" id="adminUser" placeholder="admin@tunasmelati.com">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="adminPass" placeholder="Masukkan password">
+                </div>
+                <button class="save-btn ripple-effect" style="width:100%; margin-top:10px;" id="btnAdminLogin">Masuk Sistem</button>
+            </div>
+
+            <div id="adminPanelForm" class="hidden">
+                <h3>🛠️ Kelola Konten Website</h3>
+                <p style="font-size: 12px; color: #27ae60; font-weight: 500; margin-bottom: 15px;">● Status: Terhubung via Firebase Auth</p>
+                
+                <div class="admin-scroll-area">
+                    <div class="form-group">
+                        <label>Nama Sekolah</label>
+                        <input type="text" id="input-school-name">
+                    </div>
+                    <div class="form-group">
+                        <label>Alamat Sekolah</label>
+                        <input type="text" id="input-school-address">
+                    </div>
+                    <div class="form-group">
+                        <label>Judul Banner Donasi</label>
+                        <input type="text" id="input-donation-title">
+                    </div>
+                    <div class="form-group">
+                        <label>Sub-teks Banner Donasi</label>
+                        <textarea id="input-donation-sub" rows="2"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Sambutan Kepala Sekolah</label>
+                        <textarea id="input-welcome" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Visi Utama</label>
+                        <textarea id="input-vision" rows="2"></textarea>
+                    </div>
+                </div>
+
+                <div class="admin-actions">
+                    <button class="save-btn ripple-effect" id="btnSaveAdminChanges">Simpan Perubahan</button>
+                    <button class="logout-btn" id="btnAdminLogout">Keluar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="galleryModal">
+        <div class="modal-content gallery-view-box">
+            <img id="galleryModalImg" src="" alt="Preview">
+            <p id="galleryModalCaption"></p>
+        </div>
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
