@@ -59,44 +59,77 @@ const defaultWebData = {
     footerTextEmail: "✉️ Email: spstunasmelati@gmail.com"
 };
 
+// Ambil data dari LocalStorage atau pakai default jika kosong
+function getWebData() {
+    const localData = localStorage.getItem('sps_tunas_melati_data');
+    return localData ? JSON.parse(localData) : defaultWebData;
+}
+
 // Lifecycle Inisialisasi Berdasarkan Halaman Yang Sedang Aktif
 document.addEventListener('DOMContentLoaded', () => {
     const isEditingPage = document.getElementById('adminPanelForm') !== null;
     
     if (isEditingPage) {
-        // Mode Halaman Admin
         setupAdminEventListeners();
         monitorAdminAuthState();
     } else {
-        // Mode Halaman User Utama
         renderClientWebsiteData();
         setupClientEventListeners();
     }
 });
 
 /* ==========================================================================
-   ENGINE HALAMAN UTAMA (CLIENT SITE)
+   ENGINE HALAMAN UTAMA (CLIENT SITE - INDEX.HTML)
    ========================================================================== */
 function renderClientWebsiteData() {
-    const localData = localStorage.getItem('sps_tunas_melati_data');
-    const data = localData ? JSON.parse(localData) : defaultWebData;
+    const data = getWebData();
 
-    // Mapping otomatis ke DOM ID di index.html
-    Object.keys(defaultWebData).forEach(key => {
-        // Konversi key camelCase jadi format ID kebab-case (contoh: schoolName -> text-school-name atau schoolName -> school-name)
-        const elementId = key.replace(/([A-Z])/g, "-$1").toLowerCase();
-        
-        // Coba cari elemen dengan prefix "text-" terlebih dahulu, jika gagal cari ID aslinya
-        let element = document.getElementById(`text-${elementId}`) || document.getElementById(elementId);
-        
+    // Pemetaan manual ID HTML di index.html ke key object data (Anti-Undefined)
+    const elementMapping = {
+        'text-school-name': data.schoolName,
+        'text-hero-sub-title': data.heroSubTitle,
+        'text-school-address': data.schoolAddress,
+        'text-donation-title': data.donationTitle,
+        'text-donation-sub': data.donationSub,
+        'nav-title-1': data.navTitle1, 'nav-sub-1': data.navSub1,
+        'nav-title-2': data.navTitle2, 'nav-sub-2': data.navSub2,
+        'nav-title-3': data.navTitle3, 'nav-sub-3': data.navSub3,
+        'nav-title-4': data.navTitle4, 'nav-sub-4': data.navSub4,
+        'nav-title-5': data.navTitle5, 'nav-sub-5': data.navSub5,
+        'nav-title-6': data.navTitle6, 'nav-sub-6': data.navSub6,
+        'nav-title-7': data.navTitle7, 'nav-sub-7': data.navSub7,
+        'nav-title-8': data.navTitle8, 'nav-sub-8': data.navSub8,
+        'title-sec-profil': data.titleSecProfil,
+        'title-welcome-speech': data.titleWelcomeSpeech,
+        'text-welcome': data.welcomeSpeech,
+        'title-vision': data.titleVision,
+        'text-vision': data.visionText,
+        'title-mission': data.titleMission,
+        'misi-1': data.misi1,
+        'misi-2': data.misi2,
+        'misi-3': data.misi3,
+        'title-sec-program': data.titleSecProgram,
+        'prog-title-1': data.progTitle1, 'prog-desc-1': data.progDesc1,
+        'prog-title-2': data.progTitle2, 'prog-desc-2': data.progDesc2,
+        'prog-title-3': data.progTitle3, 'prog-desc-3': data.progDesc3,
+        'text-cta-title': data.textCtaTitle,
+        'text-cta-sub': data.textCtaSub,
+        'footer-text-name': data.footerTextName,
+        'footer-text-address': data.footerTextAddress,
+        'footer-text-phone': data.footerTextPhone,
+        'footer-text-email': data.footerTextEmail
+    };
+
+    // Terapkan data ke HTML jika elemennya ditemukan
+    Object.keys(elementMapping).forEach(id => {
+        const element = document.getElementById(id);
         if (element) {
-            element.innerText = data[key];
+            element.innerText = elementMapping[id] || "";
         }
     });
 }
 
 function setupClientEventListeners() {
-    // Navigasi Smooth Launcher Grid
     document.querySelectorAll('.app-launcher-grid .launcher-card[data-target]').forEach(card => {
         card.addEventListener('click', () => {
             const target = card.getAttribute('data-target');
@@ -104,11 +137,9 @@ function setupClientEventListeners() {
         });
     });
 
-    // Event Handler Eksternal
     document.getElementById('btnContactWA')?.addEventListener('click', () => { window.open('https://wa.me/628123456789', '_blank'); });
     document.getElementById('btnCtaDaftar')?.addEventListener('click', () => { window.open('https://wa.me/628123456789?text=Daftar', '_blank'); });
 
-    // Viewer Modal Galeri Singkat
     document.querySelectorAll('.gallery-item').forEach(item => {
         item.addEventListener('click', () => {
             document.getElementById('galleryModalImg').src = item.querySelector('img').src;
@@ -121,17 +152,15 @@ function setupClientEventListeners() {
 }
 
 /* ==========================================================================
-   ENGINE DASHBOARD MANAJEMEN (ADMIN PAGE TERSENDIRI)
+   ENGINE DASHBOARD MANAJEMEN (ADMIN.HTML)
    ========================================================================== */
 function monitorAdminAuthState() {
     onAuthStateChanged(auth, (user) => {
         if (user) {
-            // Jika terautentikasi, buka panel editor dan isi data input form
             document.getElementById('adminLoginForm').classList.add('hidden');
             document.getElementById('adminPanelForm').classList.remove('hidden');
             loadCurrentDataToInputs();
         } else {
-            // Jika belum login / logout, tampilkan form login utama
             document.getElementById('adminPanelForm').classList.add('hidden');
             document.getElementById('adminLoginForm').classList.remove('hidden');
         }
@@ -151,21 +180,50 @@ async function handleAdminLogin() {
         alert("🔑 Login Sukses! Dashboard editor terbuka.");
     } catch (error) {
         alert("Gagal masuk: Akun salah atau tidak terdaftar di Firebase Auth.");
-    } finally {
+    } military {
         btn.innerText = "Masuk Ke Dashboard"; btn.disabled = false;
     }
 }
 
 function loadCurrentDataToInputs() {
-    const localData = localStorage.getItem('sps_tunas_melati_data');
-    const data = localData ? JSON.parse(localData) : defaultWebData;
+    const data = getWebData();
 
-    // Masukkan data lama ke dalam masing-masing kolom input editor
-    Object.keys(defaultWebData).forEach(key => {
-        const elementId = key.replace(/([A-Z])/g, "-$1").toLowerCase();
-        const inputElement = document.getElementById(`input-${elementId}`);
+    // Pemetaan manual untuk value input form di admin.html (Anti-Undefined)
+    const inputMapping = {
+        'input-school-name': data.schoolName,
+        'input-hero-sub-title': data.heroSubTitle,
+        'input-school-address': data.schoolAddress,
+        'input-donation-title': data.donationTitle,
+        'input-donation-sub': data.donationSub,
+        'input-nav-title-1': data.navTitle1, 'input-nav-sub-1': data.navSub1,
+        'input-nav-title-2': data.navTitle2, 'input-nav-sub-2': data.navSub2,
+        'input-nav-title-3': data.navTitle3, 'input-nav-sub-3': data.navSub3,
+        'input-nav-title-4': data.navTitle4, 'input-nav-sub-4': data.navSub4,
+        'input-title-sec-profil': data.titleSecProfil,
+        'input-title-welcome-speech': data.titleWelcomeSpeech,
+        'input-welcome': data.welcomeSpeech,
+        'input-title-vision': data.titleVision,
+        'input-vision': data.visionText,
+        'input-title-mission': data.titleMission,
+        'input-misi-1': data.misi1,
+        'input-misi-2': data.misi2,
+        'input-misi-3': data.misi3,
+        'input-title-sec-program': data.titleSecProgram,
+        'input-prog-title-1': data.progTitle1, 'input-prog-desc-1': data.progDesc1,
+        'input-prog-title-2': data.progTitle2, 'input-prog-desc-2': data.progDesc2,
+        'input-prog-title-3': data.progTitle3, 'input-prog-desc-3': data.progDesc3,
+        'input-text-cta-title': data.textCtaTitle,
+        'input-text-cta-sub': data.textCtaSub,
+        'input-footer-text-name': data.footerTextName,
+        'input-footer-text-address': data.footerTextAddress,
+        'input-footer-text-phone': data.footerTextPhone,
+        'input-footer-text-email': data.footerTextEmail
+    };
+
+    Object.keys(inputMapping).forEach(id => {
+        const inputElement = document.getElementById(id);
         if (inputElement) {
-            inputElement.value = data[key] || '';
+            inputElement.value = inputMapping[id] || "";
         }
     });
 }
@@ -173,20 +231,53 @@ function loadCurrentDataToInputs() {
 function saveAllAdminChanges() {
     if (!auth.currentUser) { alert("Sesi kadaluarsa. Silakan login kembali."); return; }
 
-    const updatedData = {};
-    Object.keys(defaultWebData).forEach(key => {
-        const elementId = key.replace(/([A-Z])/g, "-$1").toLowerCase();
-        const inputElement = document.getElementById(`input-${elementId}`);
-        if (inputElement) {
-            updatedData[key] = inputElement.value;
-        } else {
-            updatedData[key] = defaultWebData[key]; // Fallback ke default jika tidak ada inputan
-        }
-    });
+    // Ambil value langsung dari masing-masing input ID secara presisi
+    const updatedData = {
+        schoolName: document.getElementById('input-school-name').value,
+        heroSubTitle: document.getElementById('input-hero-sub-title').value,
+        schoolAddress: document.getElementById('input-school-address').value,
+        donationTitle: document.getElementById('input-donation-title').value,
+        donationSub: document.getElementById('input-donation-sub').value,
+        navTitle1: document.getElementById('input-nav-title-1').value,
+        navSub1: document.getElementById('input-nav-sub-1').value,
+        navTitle2: document.getElementById('input-nav-title-2').value,
+        navSub2: document.getElementById('input-nav-sub-2').value,
+        navTitle3: document.getElementById('input-nav-title-3').value,
+        navSub3: document.getElementById('input-nav-sub-3').value,
+        navTitle4: document.getElementById('input-nav-title-4').value,
+        navSub4: document.getElementById('input-nav-sub-4').value,
+        // Menu 5-8 opsional (ambil dari form atau fallback ke default)
+        navTitle5: defaultWebData.navTitle5, navSub5: defaultWebData.navSub5,
+        navTitle6: defaultWebData.navTitle6, navSub6: defaultWebData.navSub6,
+        navTitle7: defaultWebData.navTitle7, navSub7: defaultWebData.navSub7,
+        navTitle8: defaultWebData.navTitle8, navSub8: defaultWebData.navSub8,
+        titleSecProfil: document.getElementById('input-title-sec-profil').value,
+        titleWelcomeSpeech: document.getElementById('input-title-welcome-speech').value,
+        welcomeSpeech: document.getElementById('input-welcome').value,
+        titleVision: document.getElementById('input-title-vision').value,
+        visionText: document.getElementById('input-vision').value,
+        titleMission: document.getElementById('input-title-mission').value,
+        misi1: document.getElementById('input-misi-1').value,
+        misi2: document.getElementById('input-misi-2').value,
+        misi3: document.getElementById('input-misi-3').value,
+        titleSecProgram: document.getElementById('input-title-sec-program').value,
+        progTitle1: document.getElementById('input-prog-title-1').value,
+        progDesc1: document.getElementById('input-prog-desc-1').value,
+        progTitle2: document.getElementById('input-prog-title-2').value,
+        progDesc2: document.getElementById('input-prog-desc-2').value,
+        progTitle3: document.getElementById('input-prog-title-3').value,
+        progDesc3: document.getElementById('input-prog-desc-3').value,
+        textCtaTitle: document.getElementById('input-text-cta-title').value,
+        textCtaSub: document.getElementById('input-text-cta-sub').value,
+        footerTextName: document.getElementById('input-footer-text-name').value,
+        footerTextAddress: document.getElementById('input-footer-text-address').value,
+        footerTextPhone: document.getElementById('input-footer-text-phone').value,
+        footerTextEmail: document.getElementById('input-footer-text-email').value
+    };
 
     localStorage.setItem('sps_tunas_melati_data', JSON.stringify(updatedData));
     alert("🎉 Selesai! Semua konten website berhasil diperbarui secara massal.");
-    window.location.href = "index.html"; // Redirect kembali ke beranda utama
+    window.location.href = "index.html"; 
 }
 
 function setupAdminEventListeners() {
