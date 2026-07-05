@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>404 - Halaman Tidak Ditemukan</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+
+    background:linear-gradient(
+        135deg,
+        #0f766e 0%,
+        #16a34a 55%,
+        #34d399 100%
+    );
+
+    overflow:hidden;
+}
+
+.card{
+    width:100%;
+    max-width:460px;
+
+    background:rgba(255,255,255,.12);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.2);
+    border-radius:28px;
+
+    padding:45px 30px;
+
+    text-align:center;
+
+    color:#fff;
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.18);
+
+    animation:fade .6s ease;
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.icon{
+    font-size:64px;
+    margin-bottom:18px;
+}
+
+h1{
+    font-size:88px;
+    line-height:1;
+    font-weight:800;
+    margin-bottom:10px;
+}
+
+h2{
+    font-size:30px;
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+p{
+    font-size:17px;
+    line-height:1.8;
+    color:rgba(255,255,255,.9);
+    margin-bottom:38px;
+}
+
+a{
+    display:inline-block;
+    text-decoration:none;
+
+    background:#fff;
+    color:#15803d;
+
+    padding:15px 38px;
+
+    border-radius:50px;
+
+    font-size:18px;
+    font-weight:700;
+
+    transition:.3s;
+}
+
+a:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(0,0,0,.2);
+}
+
+@media(max-width:480px){
+
+.card{
+    padding:40px 25px;
+}
+
+.icon{
+    font-size:56px;
+}
+
+h1{
+    font-size:72px;
+}
+
+h2{
+    font-size:24px;
+}
+
+p{
+    font-size:15px;
+}
+
+a{
+    width:100%;
+    padding:15px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<div class="icon">🌿</div>
+
+<h1>404</h1>
+
+<h2>Halaman Tidak Ditemukan</h2>
+
+<p>
+Maaf, halaman yang Anda cari mungkin telah dipindahkan,
+diubah, atau sudah tidak tersedia lagi.
+</p>
+
+<a href="/">Kembali</a>
+
+</div>
+
+</body>
+</html>
