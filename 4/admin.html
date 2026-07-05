@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Manajemen Web - SPS Tunas Melati</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body { background-color: #f0f4f1; padding: 20px; }
+        .admin-page-container { max-width: 800px; margin: 40px auto; background: #fff; padding: 30px; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .editor-section { border-bottom: 2px dashed #eee; padding-bottom: 20px; margin-bottom: 20px; }
+        .editor-section h3 { color: #2F5D1A; font-size: 16px; margin-bottom: 15px; border-left: 4px solid #67C23A; padding-left: 8px; }
+        .btn-nav-back { display: inline-block; text-decoration: none; color: #666; font-size: 14px; margin-bottom: 20px; font-weight: 500; }
+    </style>
+</head>
+<body>
+
+    <div class="admin-page-container">
+        <a href="index.html" class="btn-nav-back">⬅️ Kembali ke Website Utama</a>
+
+        <!-- FORM LOGIN FIREBASE -->
+        <div id="adminLoginForm">
+            <h2 style="margin-bottom: 5px;">🔒 Login Sistem Admin</h2>
+            <p style="font-size: 13px; color: #666; margin-bottom: 25px;">Masukkan kredensial Firebase untuk mulai mengelola semua konten halaman.</p>
+            
+            <div class="form-group">
+                <label>Email Resmi Admin</label>
+                <input type="email" id="adminUser" placeholder="admin@tunasmelati.com">
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" id="adminPass" placeholder="••••••••">
+            </div>
+            <button class="save-btn" style="width: 100%; padding: 14px; margin-top: 10px;" id="btnAdminLogin">Masuk Ke Dashboard</button>
+        </div>
+
+        <!-- DASHBOARD CONTENT EDITOR -->
+        <div id="adminPanelForm" class="hidden">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
+                <div>
+                    <h2>🛠️ Dashboard Konten</h2>
+                    <p style="font-size: 12px; color: #27ae60; font-weight: 600;">● Status: Terverifikasi Ke Firebase Server</p>
+                </div>
+                <button class="logout-btn" id="btnAdminLogout" style="padding: 8px 16px;">Keluar Sesi</button>
+            </div>
+
+            <div class="admin-full-editor">
+                
+                <!-- BAGIAN 1: CAMPAGIN DONASI -->
+                <div class="editor-section">
+                    <h3>1. Bagian Kampanye Donasi</h3>
+                    <div class="form-group">
+                        <label>Judul Kampanye Donasi</label>
+                        <input type="text" id="input-donation-title">
+                    </div>
+                    <div class="form-group">
+                        <label>Sub-teks Kampanye Donasi</label>
+                        <textarea id="input-donation-sub" rows="2"></textarea>
+                    </div>
+                </div>
+
+                <!-- BAGIAN 2: NAVIGASI LAUNCHER CARDS -->
+                <div class="editor-section">
+                    <h3>2. Menu Navigasi (Launcher Grid)</h3>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                        <div class="form-group"><label>Menu 1 (Judul)</label><input type="text" id="input-nav-title-1"></div>
+                        <div class="form-group"><label>Menu 1 (Sub)</label><input type="text" id="input-nav-sub-1"></div>
+                        <div class="form-group"><label>Menu 2 (Judul)</label><input type="text" id="input-nav-title-2"></div>
+                        <div class="form-group"><label>Menu 2 (Sub)</label><input type="text" id="input-nav-sub-2"></div>
+                        <div class="form-group"><label>Menu 3 (Judul)</label><input type="text" id="input-nav-title-3"></div>
+                        <div class="form-group"><label>Menu 3 (Sub)</label><input type="text" id="input-nav-sub-3"></div>
+                        <div class="form-group"><label>Menu 4 (Judul)</label><input type="text" id="input-nav-title-4"></div>
+                        <div class="form-group"><label>Menu 4 (Sub)</label><input type="text" id="input-nav-sub-4"></div>
+                    </div>
+                </div>
+
+                <!-- BAGIAN 3: PROFIL SEKOLAH -->
+                <div class="editor-section">
+                    <h3>3. Section Profil, Visi & Misi</h3>
+                    <div class="form-group">
+                        <label>Nama Section Profil</label>
+                        <input type="text" id="input-title-sec-profil">
+                    </div>
+                    <div class="form-group">
+                        <label>Judul Sambutan</label>
+                        <input type="text" id="input-title-welcome-speech">
+                    </div>
+                    <div class="form-group">
+                        <label>Isi Sambutan Kepala Sekolah</label>
+                        <textarea id="input-welcome" rows="4"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Judul Visi</label>
+                        <input type="text" id="input-title-vision">
+                    </div>
+                    <div class="form-group">
+                        <label>Teks Visi</label>
+                        <textarea id="input-vision" rows="2"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Judul Misi</label>
+                        <input type="text" id="input-title-mission">
+                    </div>
+                    <div class="form-group"><label>Misi Poin 1</label><input type="text" id="input-misi-1"></div>
+                    <div class="form-group"><label>Misi Poin 2</label><input type="text" id="input-misi-2"></div>
+                    <div class="form-group"><label>Misi Poin 3</label><input type="text" id="input-misi-3"></div>
+                </div>
+
+                <!-- BAGIAN 4: PROGRAM BELAJAR -->
+                <div class="editor-section">
+                    <h3>4. Section Program Belajar</h3>
+                    <div class="form-group">
+                        <label>Nama Section Program</label>
+                        <input type="text" id="input-title-sec-program">
+                    </div>
+                    <div style="background: #fdfdfd; padding: 10px; border: 1px solid #eee; margin-bottom: 10px;">
+                        <div class="form-group"><label>Program 1 (Judul)</label><input type="text" id="input-prog-title-1"></div>
+                        <div class="form-group"><label>Program 1 (Deskripsi)</label><input type="text" id="input-prog-desc-1"></div>
+                    </div>
+                    <div style="background: #fdfdfd; padding: 10px; border: 1px solid #eee; margin-bottom: 10px;">
+                        <div class="form-group"><label>Program 2 (Judul)</label><input type="text" id="input-prog-title-2"></div>
+                        <div class="form-group"><label>Program 2 (Deskripsi)</label><input type="text" id="input-prog-desc-2"></div>
+                    </div>
+                    <div style="background: #fdfdfd; padding: 10px; border: 1px solid #eee;">
+                        <div class="form-group"><label>Program 3 (Judul)</label><input type="text" id="input-prog-title-3"></div>
+                        <div class="form-group"><label>Program 3 (Deskripsi)</label><input type="text" id="input-prog-desc-3"></div>
+                    </div>
+                </div>
+
+                <!-- BAGIAN 5: CALL TO ACTION (PPDB) & FOOTER -->
+                <div class="editor-section">
+                    <h3>5. Registrasi Banner (PPDB) & Footer</h3>
+                    <div class="form-group">
+                        <label>Judul Banner PPDB</label>
+                        <input type="text" id="input-text-cta-title">
+                    </div>
+                    <div class="form-group">
+                        <label>Sub-teks Banner PPDB</label><input type="text" id="input-text-cta-sub">
+                    </div>
+                    <div class="form-group">
+                        <label>Nama Sekolah (Footer)</label><input type="text" id="input-footer-text-name">
+                    </div>
+                    <div class="form-group">
+                        <label>Alamat Lengkap (Footer)</label><textarea id="input-footer-text-address" rows="2"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Kontak WA (Footer)</label><input type="text" id="input-footer-text-phone">
+                    </div>
+                    <div class="form-group">
+                        <label>Kontak Email (Footer)</label><input type="text" id="input-footer-text-email">
+                    </div>
+                </div>
+
+                <button class="save-btn" id="btnSaveAdminChanges" style="width: 100%; padding: 16px; font-size: 16px; margin-top: 10px;">💾 Simpan Semua Perubahan Konten</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
