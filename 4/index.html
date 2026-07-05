@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPS Tunas Melati - Dongkelan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- TOMBOL MENUJU HALAMAN ADMIN -->
+    <a href="admin.html" class="admin-trigger-btn" id="adminTriggerBtn">🔒 Kelola Situs</a>
+
+    <!-- HEADER HERO BANNER GAMBAR (head.png) -->
+    <header class="hero-header-picture">
+        <div class="hero-content"></div>
+    </header>
+
+    <main class="container">
+        
+        <!-- BANNER DONASI -->
+        <section class="donation-banner ripple-effect" id="donationBanner">
+            <div class="donation-content">
+                <span class="donation-icon">🏫</span>
+                <div class="donation-text">
+                    <h3 id="text-donation-title">Donasi Pembangunan Gedung Baru SPS Tunas Melati</h3>
+                    <p id="text-donation-sub">"Bersama kita wujudkan tempat belajar yang nyaman untuk anak-anak."</p>
+                </div>
+            </div>
+            <button class="donation-btn">❤️ Donasi Sekarang</button>
+        </section>
+
+        <!-- APP-LAUNCHER NAVIGATION MENU -->
+        <nav class="app-launcher-grid">
+            <div class="launcher-card ripple-effect" data-target="profil">
+                <div class="launcher-icon bg-light-green">🏫</div>
+                <div class="launcher-info">
+                    <h4 id="nav-title-1">Profil Sekolah</h4>
+                    <p id="nav-sub-1">Kenali kami lebih dekat</p>
+                </div>
+            </div>
+            <div class="launcher-card ripple-effect" data-target="program">
+                <div class="launcher-icon bg-light-yellow">📖</div>
+                <div class="launcher-info">
+                    <h4 id="nav-title-2">Program Belajar</h4>
+                    <p id="nav-sub-2">Kegiatan seru anak</p>
+                </div>
+            </div>
+            <div class="launcher-card ripple-effect" data-target="galeri">
+                <div class="launcher-icon bg-light-orange">🖼</div>
+                <div class="launcher-info">
+                    <h4 id="nav-title-3">Galeri</h4>
+                    <p id="nav-sub-3">Dokumentasi ceria</p>
+                </div>
+            </div>
+            <div class="launcher-card ripple-effect" data-target="guru">
+                <div class="launcher-icon bg-light-purple">👩‍🏫</div>
+                <div class="launcher-info">
+                    <h4 id="nav-title-4">Guru</h4>
+                    <p id="nav-sub-4">Pendidik tersayang</p>
+                </div>
+            </div>
+            <div class="launcher-card ripple-effect" data-target="ppdb">
+                <div class="launcher-icon bg-light-red">📝</div>
+                <div class="launcher-info">
+                    <h4 id="nav-title-5">PPDB</h4>
+                    <p id="nav-sub-5">Pendaftaran baru</p>
+                </div>
+            </div>
+            <div class="launcher-card ripple-effect" data-target="fasilitas">
+                <div class="launcher-icon bg-light-blue">🌳</div>
+                <div class="launcher-info">
+                    <h4 id="nav-title-6">Fasilitas</h4>
+                    <p id="nav-sub-6">Sarana pendukung</p>
+                </div>
+            </div>
+            <div class="launcher-card ripple-effect" id="btnContactWA">
+                <div class="launcher-icon bg-light-teal">📞</div>
+                <div class="launcher-info">
+                    <h4 id="nav-title-7">Kontak</h4>
+                    <p id="nav-sub-7">Hubungi admin</p>
+                </div>
+            </div>
+            <div class="launcher-card ripple-effect" data-target="lokasi">
+                <div class="launcher-icon bg-light-pink">📍</div>
+                <div class="launcher-info">
+                    <h4 id="nav-title-8">Lokasi</h4>
+                    <p id="nav-sub-8">Peta petunjuk</p>
+                </div>
+            </div>
+        </nav>
+
+        <!-- PROFIL SEKOLAH SECTION -->
+        <section id="profil" class="section scroll-reveal">
+            <h2 class="section-title" id="title-sec-profil">Profil Sekolah</h2>
+            <div class="modern-card profile-card">
+                <div class="welcome-speech">
+                    <h3 id="title-welcome-speech">💬 Sambutan Kepala Sekolah</h3>
+                    <p id="text-welcome">"Selamat datang di SPS Tunas Melati Dongkelan..."</p>
+                </div>
+                <hr class="card-divider">
+                <div class="vision-mission-grid">
+                    <div>
+                        <h4 id="title-vision">🎯 Visi</h4>
+                        <p id="text-vision">Terwujudnya anak usia dini yang cerdas, ceria, mandiri, dan berkarakter.</p>
+                    </div>
+                    <div>
+                        <h4 id="title-mission">🚀 Misi</h4>
+                        <ul id="list-mission">
+                            <li id="misi-1">Menyelenggarakan pembelajaran aktif berbasis bermain.</li>
+                            <li id="misi-2">Mengembangkan kreativitas dan rasa percaya diri anak.</li>
+                            <li id="misi-3">Menjalin kemitraan yang harmonis dengan orang tua murid.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROGRAM BELAJAR SECTION -->
+        <section id="program" class="section scroll-reveal">
+            <h2 class="section-title" id="title-sec-program">Program Belajar</h2>
+            <div class="program-grid">
+                <div class="program-card">
+                    <span class="program-icon">📚</span>
+                    <h3 id="prog-title-1">Membaca</h3>
+                    <p id="prog-desc-1">Pengenalan huruf dan angka lewat cerita bergambar interaktif.</p>
+                </div>
+                <div class="program-card">
+                    <span class="program-icon">🎨</span>
+                    <h3 id="prog-title-2">Menggambar</h3>
+                    <p id="prog-desc-2">Mengeksplorasi warna untuk mengasah motorik halus anak.</p>
+                </div>
+                <div class="program-card">
+                    <span class="program-icon">🎵</span>
+                    <h3 id="prog-title-3">Musik</h3>
+                    <p id="prog-desc-3">Bernyanyi bersama melatih kecerdasan auditori dan ritme.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- GALERI SECTION -->
+        <section id="galeri" class="section scroll-reveal">
+            <h2 class="section-title" id="title-sec-galeri">Galeri Kegiatan</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/id/1067/600/400" alt="Kegiatan Mewarnai">
+                    <div class="gallery-overlay"><span>🔎 Lihat</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/id/447/600/400" alt="Bermain di Taman">
+                    <div class="gallery-overlay"><span>🔎 Lihat</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CALL TO ACTION (PPDB) -->
+        <section id="ppdb" class="cta-banner scroll-reveal">
+            <h2 id="text-cta-title">Ayo Bergabung Bersama SPS Tunas Melati</h2>
+            <p id="text-cta-sub">Pendaftaran Murid Baru Tahun Ajaran Baru Telah Dibuka. Kuota Terbatas!</p>
+            <button class="cta-btn pulse-animation" id="btnCtaDaftar">Daftar Sekarang 🚀</button>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="footer-grid">
+            <div class="footer-info">
+                <h3 id="footer-text-name">SPS TUNAS MELATI</h3>
+                <p id="footer-text-address">Dongkelan, RT 04, Panggungharjo, Sewon, Bantul, D.I. Yogyakarta.</p>
+            </div>
+            <div class="footer-contact">
+                <h4>Hubungi Kami</h4>
+                <p id="footer-text-phone">📞 WhatsApp: +62 812-3456-789</p>
+                <p id="footer-text-email">✉️ Email: spstunasmelati@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>© 2026 SPS Tunas Melati. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Modal Penampil Gambar Galeri -->
+    <div class="modal-overlay" id="galleryModal">
+        <div class="modal-content gallery-view-box">
+            <img id="galleryModalImg" src="" alt="Preview">
+        </div>
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
